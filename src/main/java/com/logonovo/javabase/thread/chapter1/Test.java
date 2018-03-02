@@ -7,7 +7,7 @@ package com.logonovo.javabase.thread.chapter1;
  */
 public class Test {
     public static void main(String[] args) {
-        MyThread thread = new MyThread();
+        MyThread thread = new MyThread("A");
         thread.start();
         try {
             for (int i = 0; i < 10; i++) {
