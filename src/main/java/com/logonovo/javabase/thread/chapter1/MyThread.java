@@ -18,7 +18,7 @@ public class MyThread extends Thread {
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         super.run();
         count --;
         System.out.println("由"+Thread.currentThread().getName()+"计算，count="+count);
