@@ -28,10 +28,18 @@ public class MyThread extends Thread {
 
     public static void main(String[] args) {
         MyThread thread = new MyThread();
-        thread.start();
-        //print
-        // main
-        // Thread-0
-        //构造函数由main线程调用，run方法由Thread-0线程调用
+        /**
+         * main
+         * Thread-0
+         * 构造函数由main线程调用，run方法由Thread-0线程调用
+         */
+        //thread.start();
+
+        /**
+         * main
+         * main
+         * 均由main线程调用
+         */
+        thread.run();
     }
 }
