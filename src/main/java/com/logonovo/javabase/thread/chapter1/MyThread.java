@@ -1,5 +1,8 @@
 package com.logonovo.javabase.thread.chapter1;
 
+import com.sun.org.apache.xml.internal.utils.ThreadControllerWrapper;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 /**
  * @Author 小凡
  * Email: logonovo@gmail.com
@@ -9,7 +12,7 @@ public class MyThread extends Thread {
     private int count = 5;
 
     public MyThread(){
-
+        System.out.println(Thread.currentThread().getName());
     }
 
     public MyThread(String name) {
@@ -20,24 +23,15 @@ public class MyThread extends Thread {
     @Override
     public synchronized void run() {
         super.run();
-        count --;
-        System.out.println("由"+Thread.currentThread().getName()+"计算，count="+count);
+        System.out.println(Thread.currentThread().getName());
     }
 
     public static void main(String[] args) {
-
-
-        MyThread same = new MyThread();
-        Thread a = new Thread(same,"A");
-        Thread b = new Thread(same,"B");
-        Thread c = new Thread(same,"C");
-        Thread d = new Thread(same,"D");
-        Thread e = new Thread(same,"E");
-        a.start();
-        b.start();
-        c.start();
-        d.start();
-        e.start();
-
+        MyThread thread = new MyThread();
+        thread.start();
+        //print
+        // main
+        // Thread-0
+        //构造函数由main线程调用，run方法由Thread-0线程调用
     }
 }
