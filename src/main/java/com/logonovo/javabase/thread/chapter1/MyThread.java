@@ -34,6 +34,13 @@ public class MyThread extends Thread {
             thread.start();
             thread.sleep(2000);
             thread.interrupt();
+
+            System.out.println(thread.isInterrupted());//false
+            System.out.println(thread.isInterrupted());//false
+
+            Thread.currentThread().interrupt();
+            System.out.println(Thread.interrupted());//true
+            System.out.println(Thread.interrupted());//false
         } catch (InterruptedException e) {
             System.out.println("main catch");
             e.printStackTrace();
