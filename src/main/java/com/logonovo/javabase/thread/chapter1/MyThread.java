@@ -23,23 +23,20 @@ public class MyThread extends Thread {
     @Override
     public synchronized void run() {
         super.run();
-        System.out.println(Thread.currentThread().getName());
+        for (int i = 0; i < 50000; i++) {
+            System.out.println("i="+(i+1));
+        }
     }
 
     public static void main(String[] args) {
-        MyThread thread = new MyThread();
-        /**
-         * main
-         * Thread-0
-         * 构造函数由main线程调用，run方法由Thread-0线程调用
-         */
-        //thread.start();
-
-        /**
-         * main
-         * main
-         * 均由main线程调用
-         */
-        thread.run();
+        try {
+            MyThread thread = new MyThread();
+            thread.start();
+            thread.sleep(2000);
+            thread.interrupt();
+        } catch (InterruptedException e) {
+            System.out.println("main catch");
+            e.printStackTrace();
+        }
     }
 }
