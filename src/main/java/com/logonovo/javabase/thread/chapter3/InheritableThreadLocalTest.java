@@ -15,6 +15,11 @@ public class InheritableThreadLocalTest extends InheritableThreadLocal implement
     }
 
     @Override
+    protected Object childValue(Object parentValue) {
+        return parentValue+" 子线程改变值";
+    }
+
+    @Override
     public void run() {
         try {
             for (int i = 0; i < 10; i++) {
