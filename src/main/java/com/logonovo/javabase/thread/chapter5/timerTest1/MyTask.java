@@ -15,12 +15,13 @@ public class MyTask extends TimerTask {
         System.out.println("任务执行了，时间为"+System.currentTimeMillis());
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("当前时间为"+System.currentTimeMillis());
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.SECOND, 5);
-        Timer timer = new Timer();
+        calendar.add(Calendar.SECOND, -5);
+        Timer timer = new Timer(true);
         MyTask task = new MyTask();
         timer.schedule(task, calendar.getTime());
+        Thread.sleep(10000);
     }
 }
