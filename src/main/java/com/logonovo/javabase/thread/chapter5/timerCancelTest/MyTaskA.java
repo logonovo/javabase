@@ -27,10 +27,12 @@ public class MyTaskA extends TimerTask{
         int i = 0;
         Calendar calendar = Calendar.getInstance();
         Date runDate = calendar.getTime();
+        Timer timer = null;
+        MyTaskA myTaskA = null;
         while (true){
             i++;
-            Timer timer = new Timer();
-            MyTaskA myTaskA = new MyTaskA(i);
+            timer = new Timer();
+            myTaskA = new MyTaskA(i);
             timer.schedule(myTaskA, runDate);
             timer.cancel();
         }
