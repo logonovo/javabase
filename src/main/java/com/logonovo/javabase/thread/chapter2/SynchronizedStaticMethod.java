@@ -21,6 +21,15 @@ public class SynchronizedStaticMethod extends Thread {
         b.setName("b");
         b.start();
 
+        try {
+            synchronized (ServiceA.class){
+                System.out.println("lock class:"+System.currentTimeMillis());
+                Thread.sleep(2000);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 
@@ -29,20 +38,20 @@ class ThreadB extends Thread{
     public void run() {
         ServiceA.printB();
     }
-}
+}T
 class ServiceA{
     synchronized public static void printA(){
         try {
-            System.out.println("enter a");
+            System.out.println("enter a"+System.currentTimeMillis());
             Thread.sleep(2000);
-            System.out.println("leave a");
+            System.out.println("leave a"+System.currentTimeMillis());
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     synchronized public static void printB(){
-        System.out.println("enter b");
-        System.out.println("leave b");
+        System.out.println("enter b"+System.currentTimeMillis());
+        System.out.println("leave b"+System.currentTimeMillis());
     }
 }
