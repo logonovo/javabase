@@ -1,5 +1,8 @@
 package com.logonovo.javabase.thread.chapter2;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ThreadPoolExecutor;
+
 /**
  * @Author 小凡
  * Email: logonovo@gmail.com
@@ -38,7 +41,7 @@ class ThreadB extends Thread{
     public void run() {
         ServiceA.printB();
     }
-}T
+}
 class ServiceA{
     synchronized public static void printA(){
         try {
