@@ -23,7 +23,7 @@ public class Limiting {
     }
 
     public static void main(String[] args) {
-        Limiting l = new Limiting();
+        final Limiting l = new Limiting();
         Runnable runnable = new Runnable() {
             @Override
             public void run() {

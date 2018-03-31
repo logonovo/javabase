@@ -25,7 +25,7 @@ public class Limiting2 {
     }
 
     public static void main(String[] args) {
-        Limiting2 l = new Limiting2();
+        final Limiting2 l = new Limiting2();
         Runnable runnable = new Runnable() {
             @Override
             public void run() {

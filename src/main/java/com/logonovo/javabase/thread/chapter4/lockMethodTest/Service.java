@@ -25,7 +25,7 @@ public class Service {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Service service = new Service();
+        final Service service = new Service();
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
