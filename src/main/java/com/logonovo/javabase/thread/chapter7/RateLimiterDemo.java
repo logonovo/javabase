@@ -14,7 +14,7 @@ public class RateLimiterDemo {
 
     public static void main(String[] args) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd HH:mm:ss.SSS");
-        RateLimiter rateLimiter = RateLimiter.create(50);
+        RateLimiter rateLimiter = RateLimiter.create(10);
         while (true){
             rateLimiter.acquire();
             System.out.println(simpleDateFormat.format(new Date()));
